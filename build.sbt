@@ -4,7 +4,7 @@
 lazy val root = (project in file("."))
   .enablePlugins(ScriptedPlugin)
   .settings(
-    name         := "zhttp",
+    name         := "zio-http",
     test in Test := {
       val _ = (g8Test in Test).toTask("").value
     },

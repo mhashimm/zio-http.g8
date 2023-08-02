@@ -1,6 +1,6 @@
-import sbt._
-import sbt.Keys._
-import scalafix.sbt.ScalafixPlugin.autoImport._
+import sbt.*
+import sbt.Keys.*
+import scalafix.sbt.ScalafixPlugin.autoImport.*
 
 object BuildHelper {
   val ScalaVersion = "$scalaVersion$"
@@ -16,9 +16,5 @@ object BuildHelper {
     ThisBuild / scalacOptions     := commonSettings(scalaVersion.value),
     ThisBuild / semanticdbEnabled := true,
     ThisBuild / semanticdbVersion := scalafixSemanticdb.revision,
-    ThisBuild / scalafixDependencies ++=
-      List(
-        "com.github.liancheng" %% "organize-imports" % "$organizeImportsVersion$",
-      ),
   )
 }
