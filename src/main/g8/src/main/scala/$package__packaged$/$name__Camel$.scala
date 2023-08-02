@@ -5,9 +5,9 @@ import zio.http.*
 
 
 object $name;format="Camel"$ extends ZIOAppDefault:
-  val app: HttpApp[Any, Nothing] = Http.collect[Request]:
-    case Method.GET -> !! / "text" => Response.text("Hello World!")
-    case Method.GET -> !! / "json" => Response.json("""{"greetings": "Hello World!"}""")
+  val app: HttpApp[Any, Nothing] = Http.collectZIO[Request]:
+    case Method.GET -> Root / "text" => ZIO.succeed(Response.text("Hello World!"))
+    case Method.GET -> Root / "json" => ZIO.succeed(Response.json("""{"greetings": "Hello World!"}"""))
     case _ => ZIO.succeed(Response.status(Status.NotFound))
   
 

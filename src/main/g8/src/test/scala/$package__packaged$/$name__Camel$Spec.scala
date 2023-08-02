@@ -6,7 +6,7 @@ import zio.http.*
 
 object $name;format="Camel"$Spec extends ZIOSpecDefault:
   override def spec = suite("""$name;format="Camel"$Spec""")(
-    testM("200 ok") {
+    test("200 ok") {
       val request = Request.get(URL(Root / "json"))
       for
         response <- $name;format="Camel"$.app.runZIO(request)
