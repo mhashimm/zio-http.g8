@@ -1,6 +1,5 @@
 import sbt.*
 import sbt.Keys.*
-import scalafix.sbt.ScalafixPlugin.autoImport.*
 
 object BuildHelper {
   val ScalaVersion = "$scalaVersion$"
