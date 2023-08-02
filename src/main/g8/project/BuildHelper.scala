@@ -14,6 +14,6 @@ object BuildHelper {
     ThisBuild / scalaVersion      := ScalaVersion,
     ThisBuild / scalacOptions     := commonSettings(scalaVersion.value),
     ThisBuild / semanticdbEnabled := true,
-    ThisBuild / semanticdbVersion := scalafixSemanticdb.revision,
+    ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
   )
 }
