@@ -1,4 +1,4 @@
-import Dependencies._
+import Dependencies.*
 
 // give the user a nice default project!
 ThisBuild / organization := "$organisation$"
@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "$name$",
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
-    libraryDependencies ++= Seq(`zio-test`, `zio-test-sbt`, `zio-http`, `zio-http-test`),
+    libraryDependencies ++= Seq(`zio-test`, `zio-test-sbt`, `zio-http`),
   )
   .settings(
     Docker / version          := version.value,

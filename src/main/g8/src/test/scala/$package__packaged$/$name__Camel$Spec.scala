@@ -1,16 +1,21 @@
 package $package$
 
-import zio.test._
-import zio.test.Assertion._
-import zhttp.http._
+import zio.test.*
+import zio.test.Assertion.*
+import zio.http.*
 
-object $name;format="Camel"$Spec extends DefaultRunnableSpec {
-  override def spec: ZSpec[Environment, Failure] = suite("""$name;format="Camel"$Spec""")(
+object $name;format="Camel"$Spec extends ZIOSpecDefault:
+  override def spec = suite("""$name;format="Camel"$Spec""")(
     testM("200 ok") {
-      checkAllM(Gen.fromIterable(List("text", "json"))) { uri =>
-        val request = Request(Method.GET, URL(!! / uri))
-        assertM($name;format="Camel"$.app(request).map(_.status))(equalTo(Status.OK))
-      }
+      val request = Request.get(URL(Root / "json"))
+      for
+        response <- $name;format="Camel"$.app.runZIO(request)
+      yield assertTrue(response.status == Status.Ok)      
     },
-  )
-}
+    test("404 Notfound") {
+      val request = Request.get(URL(Root))
+      for
+        response <- $name;format="Camel"$.app.runZIO(request)
+      yield assertTrue(response.status == Status.NotFound)      
+    }
+)

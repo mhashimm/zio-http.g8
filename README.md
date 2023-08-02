@@ -1,6 +1,7 @@
-## A Giter8 template for [ZIO-HTTP](https://github.com/dream11/zio-http)
+## Based on [ZIO-HTTP](https://github.com/dream11/zio-http)
+## A Giter8 template for [ZIO-HTTP](https://github.com/mahshimm/zio-http)
 
-### How to use
+#### How to use
 ```scala
-sbt new dream11/zio-http.g8
+sbt new mhashimm/zio-http.g8
 ```
